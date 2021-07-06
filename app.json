@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "clidive-frontend",
+    "slug": "clidive-frontend",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "clidive-frontend"
+}
