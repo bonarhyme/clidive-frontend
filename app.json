@@ -1,11 +1,9 @@
 {
   "expo": {
-    "name": "clidive-frontend",
-    "slug": "clidive-frontend",
+    "name": "clidive-realtors",
+    "slug": "clidive-realtors",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   },
-  "name": "clidive-frontend"
+  "name": "clidive-realtors"
 }
