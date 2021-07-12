@@ -20,7 +20,15 @@ export const variables = {
   avatar_4,
   avatar_5,
   clidiveLogo,
-  color_blue: "blue",
-  color_white: "white",
-  color_black: "black",
+  color: {
+    primary: "#007BFF",
+    info: "#17A2B8",
+    success: "#28a745",
+    warning: "#ffc107",
+    danger: "#dc3545",
+    dark: "#343a40",
+    secondary: "#6c757d",
+    light: "#f8f9fa",
+    white: "#fff",
+  },
 };

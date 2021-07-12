@@ -4,21 +4,27 @@ import { ImageBackground, StyleSheet, View } from "react-native";
 import clidiveLogo from "../assets/images/clidive-logo.jpeg";
 import routeNames from "../data/routeNames";
 
+import AppButton from "../components/AppButton";
+
 const Welcome = () => {
   return (
     <ImageBackground
       blurRadius={0}
       style={styles.background}
       source={clidiveLogo}
-    ></ImageBackground>
+    >
+      <AppButton text="Register" color="success" />
+      <AppButton text="Login" color="info" />
+      <AppButton text="View posts" />
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    justifyContent: "flex-end",
     alignItems: "center",
+    justifyContent: "flex-end",
   },
 });
 
