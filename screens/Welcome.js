@@ -23,7 +23,10 @@ const Welcome = ({ navigation }) => {
         color="info"
         onPress={() => navigation.navigate(routeNames.LOGIN)}
       />
-      <AppButton text="View posts" />
+      <AppButton
+        text="View posts"
+        onPress={() => navigation.navigate(routeNames.LISTINGS)}
+      />
     </ImageBackground>
   );
 };

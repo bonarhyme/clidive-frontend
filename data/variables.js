@@ -12,7 +12,7 @@ export const variables = {
   instagramHandle: "@rhymebet_support",
   emailLink: "mailto:rhymebet_support@outlook.com",
   email: "rhymebet_support@outlook.com",
-  backendLink: "http://localhost:5678",
+  backendLink: "http://192.168.43.233:5678",
   GOOGLE_API_KEY: "AIzaSyD_lMXvGFGsiO2qhvX7Vs49r-sdICRtrAQ",
   avatar_1,
   avatar_2,

@@ -1,10 +1,12 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import { createStackNavigator } from "@react-navigation/stack";
 import routeNames from "../data/routeNames";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import Welcome from "../screens/Welcome";
+import Listings from "../screens/Listings";
+import FeedNavigation from "./FeedNavigation";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +30,13 @@ const AppMainNavigation = ({ navigation }) => {
       <Stack.Screen
         name={routeNames.REGISTER}
         component={Register}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={routeNames.LISTINGS}
+        component={FeedNavigation}
         options={{
           headerShown: false,
         }}

@@ -4,8 +4,11 @@ import {
   USER_REGISTER_FAIL,
 } from "../constants/userConstants";
 
+import axios from "axios";
+import { variables } from "../data/variables";
+
 export const register =
-  (name, email, username, password) => async (dispatch) => {
+  (name, username, email, password) => async (dispatch) => {
     try {
       dispatch({
         type: USER_REGISTER_REQUEST,
@@ -19,8 +22,8 @@ export const register =
         `${variables.backendLink}/api/user/register`,
         {
           name,
-          email,
           username,
+          email,
           password,
         },
         config

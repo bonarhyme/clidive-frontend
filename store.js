@@ -18,7 +18,7 @@ const userInfoFromStorage = async () => {
     if (theUser) {
       return theUser;
     }
-    return [];
+    return null;
   } catch (error) {
     console.log("Error getting the auth token", error);
   }
@@ -26,9 +26,9 @@ const userInfoFromStorage = async () => {
 
 // initial state
 const initialState = {
-  userLogin: {
-    userInfo: userInfoFromStorage,
-  },
+  // userLogin: {
+  //   userInfo: userInfoFromStorage,
+  // },
 };
 
 const middleware = [thunk];

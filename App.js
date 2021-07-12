@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import Screen from "./components/Screen";
 
@@ -8,11 +10,13 @@ import AppMainNavigation from "./navigation/AppMainNavigation";
 
 const App = () => {
   return (
-    <Screen>
-      <NavigationContainer>
-        <AppMainNavigation />
-      </NavigationContainer>
-    </Screen>
+    <Provider store={store}>
+      <Screen>
+        <NavigationContainer>
+          <AppMainNavigation />
+        </NavigationContainer>
+      </Screen>
+    </Provider>
   );
 };
 
