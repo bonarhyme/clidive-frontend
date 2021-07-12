@@ -1,14 +1,17 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
 import Screen from "./components/Screen";
 
-import WelcomeScreen from "./screens/Welcome";
+import AppMainNavigation from "./navigation/AppMainNavigation";
 
 const App = () => {
   return (
     <Screen>
-      <WelcomeScreen />
+      <NavigationContainer>
+        <AppMainNavigation />
+      </NavigationContainer>
     </Screen>
   );
 };

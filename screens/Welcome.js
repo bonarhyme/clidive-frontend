@@ -6,15 +6,23 @@ import routeNames from "../data/routeNames";
 
 import AppButton from "../components/AppButton";
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <ImageBackground
       blurRadius={0}
       style={styles.background}
       source={clidiveLogo}
     >
-      <AppButton text="Register" color="success" />
-      <AppButton text="Login" color="info" />
+      <AppButton
+        text="Register"
+        color="success"
+        onPress={() => navigation.navigate(routeNames.REGISTER)}
+      />
+      <AppButton
+        text="Login"
+        color="info"
+        onPress={() => navigation.navigate(routeNames.LOGIN)}
+      />
       <AppButton text="View posts" />
     </ImageBackground>
   );
