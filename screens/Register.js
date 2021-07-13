@@ -85,6 +85,12 @@ const Register = ({ navigation }) => {
     }
   }, [success]);
 
+  useEffect(() => {
+    if (userInfo) {
+      navigation.navigate(routeNames.LISTINGS);
+    }
+  }, [userInfo]);
+
   return (
     <Screen>
       <Formik
