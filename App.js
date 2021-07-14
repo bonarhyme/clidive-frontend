@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Text, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
@@ -8,7 +8,6 @@ import authStorage from "./storage";
 import Screen from "./components/Screen";
 
 import AppMainNavigation from "./navigation/AppMainNavigation";
-import { useState } from "react";
 
 const App = () => {
   return (
