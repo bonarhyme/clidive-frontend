@@ -2,12 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { userRegisterReducer, userLoginReducer } from "./reducers/userReducers";
+import { createListingReducer } from "./reducers/listingReducers";
 
 import authStorage from "./storage";
 
 const reducer = combineReducers({
   userRegister: userRegisterReducer,
   userLogin: userLoginReducer,
+  listingCreate: createListingReducer,
 });
 
 const userInfoFromStorage = authStorage.getToken()

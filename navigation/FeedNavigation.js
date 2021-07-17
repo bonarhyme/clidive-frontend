@@ -85,7 +85,6 @@ const FeedNavigation = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
-    zIndex: -1,
     backgroundColor: variables.color.light,
     width: 70,
     justifyContent: "center",
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
     borderColor: variables.color.secondary,
     borderWidth: 1,
     height: 70,
-    bottom: 25,
+    bottom: 15,
   },
 });
 

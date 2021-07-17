@@ -19,6 +19,7 @@ const AppButton = ({ onPress, text = "Submit", color = "primary" }) => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 5,
+    marginTop: 15,
     borderRadius: 50,
     paddingHorizontal: 50,
     width: 300,
