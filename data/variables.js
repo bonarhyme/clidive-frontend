@@ -31,5 +31,6 @@ export const variables = {
     light: "#f8f9fa",
     white: "#fff",
     gray: "#ddd",
+    read: "#333",
   },
 };

@@ -11,7 +11,7 @@ import Contact from "../screens/Contact";
 import Listings from "../screens/Listings";
 import { variables } from "../data/variables";
 import ListingsEdit from "../screens/ListingsEdit";
-import { reloadAsync } from "expo-updates";
+import ListingsNavigation from "./ListingsNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,14 +30,13 @@ const FeedNavigation = ({ navigation }) => {
 
   return (
     <Tab.Navigator
-      initialRouteName="Listings"
       tabBarOptions={{
         showLabel: false,
       }}
     >
       <Tab.Screen
         name={routeNames.LISTINGS}
-        component={Listings}
+        component={ListingsNavigation}
         options={{
           tabBarIcon: ({ size, color }) => {
             return <MaterialIcons name="home" size={size} color={color} />;
