@@ -2,6 +2,9 @@ import {
   CREATE_LISTING_REQUEST,
   CREATE_LISTING_SUCCESS,
   CREATE_LISTING_FAIL,
+  GET_LISTINGS_REQUEST,
+  GET_LISTINGS_SUCCESS,
+  GET_LISTINGS_FAIL,
 } from "../constants/listingConstants";
 import axios from "axios";
 import { variables } from "../data/variables";
@@ -60,3 +63,28 @@ export const createListing =
       });
     }
   };
+
+export const getAllListings = (keyword) => async (dispatch) => {
+  try {
+    dispatch({
+      type: GET_LISTINGS_REQUEST,
+    });
+
+    const { data } = await axios.get(
+      `${variables.backendLink}/api/listing/all/?keyword=${keyword}`
+    );
+
+    dispatch({
+      type: GET_LISTINGS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_LISTINGS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

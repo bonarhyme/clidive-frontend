@@ -30,5 +30,6 @@ export const variables = {
     secondary: "#6c757d",
     light: "#f8f9fa",
     white: "#fff",
+    gray: "#ddd",
   },
 };
