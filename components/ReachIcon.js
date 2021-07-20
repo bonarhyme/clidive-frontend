@@ -8,10 +8,13 @@ const ReachIcon = ({
   name = "whatsapp",
   color = "green",
   size = 50,
+  hasText = false,
+  text = "Whatsapp",
 }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
+        {hasText && <Text>{text}</Text>}
         <FontAwesome5 name={name} size={size} color={color} />
       </View>
     </TouchableOpacity>
@@ -21,6 +24,7 @@ const ReachIcon = ({
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 15,
+    alignItems: "center",
   },
 });
 

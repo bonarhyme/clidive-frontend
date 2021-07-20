@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Text, Linking } from "react-native";
+import { ScrollView, View, StyleSheet, Text, Linking } from "react-native";
+import About from "../components/About";
 
 import ReachIcon from "../components/ReachIcon";
 
@@ -7,7 +8,7 @@ import { variables } from "../data/variables";
 
 const Contact = () => {
   return (
-    <View>
+    <ScrollView>
       <Text style={styles.cTitle}>Contact Clidive Realtors</Text>
       <View style={styles.contact}>
         <ReachIcon
@@ -15,12 +16,16 @@ const Contact = () => {
           name="envelope"
           color={variables.color.secondary}
           onPress={() => Linking.openURL(`mailto:${variables.email}`)}
+          hasText={true}
+          text="Email"
         />
         <ReachIcon
-          size={47}
+          size={55}
           name="phone"
           color={variables.color.primary}
           onPress={() => Linking.openURL(`tel:${variables.phoneNumber}`)}
+          hasText={true}
+          text="Phone"
         />
         <ReachIcon
           size={60}
@@ -33,9 +38,17 @@ const Contact = () => {
               }&phone=${variables.phoneNumber}`
             )
           }
+          hasText={true}
         />
       </View>
-    </View>
+      <View
+        style={{
+          borderBottomColor: "black",
+          borderBottomWidth: 1,
+        }}
+      />
+      <About />
+    </ScrollView>
   );
 };
 
