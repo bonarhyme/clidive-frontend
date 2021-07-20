@@ -46,7 +46,7 @@ const Listings = ({ navigation }) => {
         <TextInput
           style={{
             flex: 1,
-            paddingLeft: 10,
+            paddingLeft: 15,
           }}
           onChangeText={(text) => setKeyword(text)}
           returnKeyType="search"
@@ -57,6 +57,9 @@ const Listings = ({ navigation }) => {
           size={30}
           color={variables.color.secondary}
           onPress={() => searchListings(keyword)}
+          style={{
+            paddingRight: 10,
+          }}
         />
       </View>
       {listings.length > 0 ? (
