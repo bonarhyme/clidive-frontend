@@ -12,16 +12,19 @@ import Listings from "../screens/Listings";
 import { variables } from "../data/variables";
 import ListingsEdit from "../screens/ListingsEdit";
 import ListingsNavigation from "./ListingsNavigation";
+import Account from "../screens/Account";
 
 const Tab = createBottomTabNavigator();
 
 const FeedNavigation = ({ navigation }) => {
   const [user, setUser] = useState("");
+  const [exist, setExist] = useState(false);
 
   // let theToken;
   const getToken = async () => {
     const token = await authStorage.getToken();
     setUser(token);
+    setExist(true);
   };
 
   useEffect(() => {
@@ -43,32 +46,48 @@ const FeedNavigation = ({ navigation }) => {
           },
         }}
       />
-      <Tab.Screen
-        name={routeNames.LISTING_EDIT}
-        component={ListingsEdit}
-        options={({ navigation }) => ({
-          tabBarIcon: ({ color, focused }) => (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(routeNames.LISTING_EDIT);
-              }}
-            >
-              <View
-                style={[
-                  styles.button,
-                  {
-                    borderColor: focused
-                      ? variables.color.primary
-                      : variables.color.secondary,
-                  },
-                ]}
+      {exist && user && (
+        <Tab.Screen
+          name={routeNames.ACCOUNT}
+          component={Account}
+          options={{
+            tabBarIcon: ({ size, color }) => {
+              return (
+                <MaterialIcons name="account-box" size={size} color={color} />
+              );
+            },
+          }}
+        />
+      )}
+      {exist && user && user.isAdmin && (
+        <Tab.Screen
+          name={routeNames.LISTING_EDIT}
+          component={ListingsEdit}
+          options={({ navigation }) => ({
+            tabBarIcon: ({ color, focused }) => (
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate(routeNames.LISTING_EDIT);
+                }}
               >
-                <MaterialIcons name="add" size={50} color={color} />
-              </View>
-            </TouchableOpacity>
-          ),
-        })}
-      />
+                <View
+                  style={[
+                    styles.button,
+                    {
+                      borderColor: focused
+                        ? variables.color.primary
+                        : variables.color.secondary,
+                    },
+                  ]}
+                >
+                  <MaterialIcons name="add" size={50} color={color} />
+                </View>
+              </TouchableOpacity>
+            ),
+          })}
+        />
+      )}
+
       <Tab.Screen
         name={routeNames.CONTACT}
         component={Contact}

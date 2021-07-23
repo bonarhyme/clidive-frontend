@@ -5,7 +5,6 @@ import routeNames from "../data/routeNames";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import Welcome from "../screens/Welcome";
-import Listings from "../screens/Listings";
 import FeedNavigation from "./FeedNavigation";
 import authStorage from "../storage";
 
@@ -50,6 +49,7 @@ const AppMainNavigation = ({ navigation }) => {
           }}
         />
       )}
+
       <Stack.Screen
         name={routeNames.LISTINGS}
         component={FeedNavigation}
