@@ -5,6 +5,9 @@ import {
   GET_LISTINGS_REQUEST,
   GET_LISTINGS_SUCCESS,
   GET_LISTINGS_FAIL,
+  UPDATE_SINGLE_LISTING_REQUEST,
+  UPDATE_SINGLE_LISTING_SUCCESS,
+  UPDATE_SINGLE_LISTING_FAIL,
 } from "../constants/listingConstants";
 import axios from "axios";
 import { variables } from "../data/variables";
@@ -81,6 +84,46 @@ export const getAllListings = (keyword) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: GET_LISTINGS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateSingleListing = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: UPDATE_SINGLE_LISTING_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${
+          userInfo.token === undefined ? userInfo._W.token : userInfo.token
+        }`,
+      },
+    };
+
+    const { data } = await axios.put(
+      `${variables.backendLink}/api/listing/${id}/update`,
+      "",
+      config
+    );
+
+    dispatch({
+      type: UPDATE_SINGLE_ISTING_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_SINGLE_LISTING_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

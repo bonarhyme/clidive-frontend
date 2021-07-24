@@ -1,16 +1,57 @@
 import React, { useEffect, useState } from "react";
-import { View, ScrollView, StyleSheet, Text, Linking } from "react-native";
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  Linking,
+  Alert,
+} from "react-native";
 import ReachIcon from "../components/ReachIcon";
+import { useDispatch, useSelector } from "react-redux";
 
 import Slider from "../components/Slider";
 import { variables } from "../data/variables";
+import AppButton from "../components/AppButton";
+import { updateSingleListing } from "../actions/listingAction";
+import AppActivityIndicator from "../components/AppActivityIndicator";
 
 const AText = ({ children }) => {
   return <Text style={styles.aText}>{children}</Text>;
 };
 
 const ListingDetails = (item) => {
+  const dispatch = useDispatch();
+
   const [listing, setListing] = useState(item.route.params.item);
+
+  const { loading, success, serverReply, error } = useSelector(
+    (state) => state.listingUpdateSingle
+  );
+
+  const handleMark = (id) => {
+    return Alert.alert(
+      "Mark as sold?",
+      "Are you sure you want to mark this as sold?",
+      [
+        {
+          text: "Yes",
+          onPress: () => {
+            dispatch(updateSingleListing(id));
+          },
+        },
+        {
+          text: "No",
+        },
+      ]
+    );
+  };
+
+  useEffect(() => {
+    if (success) {
+      Alert.alert("Successful", "This listing has been marked as sold.");
+    }
+  }, [serverReply]);
 
   return (
     <ScrollView>
@@ -64,6 +105,25 @@ const ListingDetails = (item) => {
           }
         />
       </View>
+
+      <AppActivityIndicator visible={loading} />
+      {listing.isSold === false ? (
+        <AppButton
+          color="warning"
+          text="Mark as sold"
+          fontSize={15}
+          onPress={() => handleMark(listing._id)}
+          marginBottom={40}
+        />
+      ) : (
+        <AppButton
+          color="success"
+          text="Sold"
+          fontSize={15}
+          marginBottom={40}
+          color="secondary"
+        />
+      )}
     </ScrollView>
   );
 };

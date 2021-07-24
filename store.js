@@ -5,6 +5,7 @@ import { userRegisterReducer, userLoginReducer } from "./reducers/userReducers";
 import {
   createListingReducer,
   getAllListingsReducer,
+  updateSingleListingReducer,
 } from "./reducers/listingReducers";
 
 import authStorage from "./storage";
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   listingCreate: createListingReducer,
   listingsGet: getAllListingsReducer,
+  listingUpdateSingle: updateSingleListingReducer,
 });
 
 const userInfoFromStorage = authStorage.getToken()
